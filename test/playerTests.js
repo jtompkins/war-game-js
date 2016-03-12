@@ -11,6 +11,12 @@ describe('Player', () => {
       player.name.should.equal('player1');
       player.canTake(1).should.be.false();
     });
+
+    it('should allow for the bulk creation of players', () => {
+      let players = Player.splitDeckAndCreatePlayers(2);
+
+      players.length.should.equal(2);
+    });
   });
 
   describe('taking and giving cards', () => {

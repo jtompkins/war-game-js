@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node ./index.js",
-    "test": "mocha --compilers js:babel-register --recursive"
+    "test": "mocha --compilers js:babel-register --recursive",
+    "debug-tests": "mocha --compilers js:babel-register --recursive --debug-brk"
   },
   "author": "Joshua Tompkins",
   "license": "MIT",
