@@ -95,4 +95,8 @@ export default class Deck {
   get count() {
     return this._cards.length;
   }
+
+  toString() {
+    return this._cards.map(c => c.toString()).join('\n');
+  }
 }

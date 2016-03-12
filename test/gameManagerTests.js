@@ -262,7 +262,7 @@ describe('GameManager', () => {
       let result = manager.resolveRound([player1, player2, player3], 3);
 
       result.winner.name.should.equal('player1');
-      result.playedCards.length.should.equal(15);
+      result.playedCards.length.should.equal(18);
       result.eliminatedPlayers.length.should.equal(0);
     });
   });

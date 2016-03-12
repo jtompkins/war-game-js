@@ -65,4 +65,8 @@ export default class Player {
   canTake(numberOfCards) {
     return this._deck.count >= numberOfCards;
   }
+
+  toString() {
+    return `${this._name}\n${this._deck.toString()}`;
+  }
 }
