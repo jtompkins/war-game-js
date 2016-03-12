@@ -5,10 +5,6 @@ import Player from '../src/player';
 import GameManager from '../src/gameManager';
 
 describe('GameManager', () => {
-  describe('Game setup', () => {
-
-  });
-
   describe('Gathering cards for comparison', () => {
     let manager = new GameManager([]);
 
@@ -319,6 +315,21 @@ describe('GameManager', () => {
 
       manager.isGameComplete.should.be.true();
       manager.isGameTied.should.be.true();
+    });
+
+    it('is iterable', () => {
+      let player1 = new Player('player1', new Deck([]));
+      let player2 = new Player('player2', new Deck([]));
+
+      let manager = new GameManager([player1, player2]);
+
+      let rounds = [];
+
+      for (let result of manager) {
+        rounds.push(result);
+      }
+
+      rounds.length.should.be.above(0);
     });
   });
 });

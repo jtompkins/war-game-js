@@ -10,7 +10,7 @@ export default class GameManager {
     constructor(players) {
       this._activePlayers = players;
       this._eliminatedPlayers = [];
-      this._round = 1;
+      this._round = 0;
     }
 
     /**
@@ -136,7 +136,7 @@ export default class GameManager {
      * Play a round of war. This method keeps track of in-game state, and
      * moves players from the active to the eliminated list as they run out
      * of cards.
-     * @returns {Object} - An object tuple of the form {winner, eliminatedPlayers}
+     * @returns {Object} - An object tuple of the form {round, winner, eliminatedPlayers}
      */
     playTurn() {
       let {winner, eliminatedPlayers} = this.resolveRound(this._activePlayers);
@@ -150,6 +150,13 @@ export default class GameManager {
         }
       });
 
-      return {winner, eliminatedPlayers};
+      this._round = this._round + 1;
+
+      return {round: this._round, winner, eliminatedPlayers};
+    }
+
+    *[Symbol.iterator]() {
+      while (!this.isGameComplete)
+        yield this.playTurn();
     }
 }
