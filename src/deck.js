@@ -18,8 +18,31 @@ export default class Deck {
     this._cards = cards;
   }
 
-  split(numberOfWays) {
+  draw(numberOfCards = 1) {
+    return this._cards.splice(0, numberOfCards);
+  }
 
+  add(cards) {
+    this._cards.push(...cards);
+  }
+
+  split(numberOfWays) {
+    let decks = [];
+    let i = 0;
+
+    while(this.count > 0) {
+      if (!decks[i])
+        decks[i] = new Deck([]);
+
+      decks[i].add(this.draw());
+
+      i = i + 1;
+
+      if (i >= numberOfWays)
+        i = 0;
+    }
+
+    return decks;
   }
 
   shuffle() {
