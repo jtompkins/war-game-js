@@ -1,4 +1,10 @@
+/** Class representing a standard playing card. */
 export default class Card {
+  /**
+   * Checks to see if the given suit is one of the allowed values.
+   * @param {string} suit - A standard playing card suit.
+   * @returns {boolean}
+   */
   static isValidSuit(suit) {
     const suitLower = suit.toLowerCase();
 
@@ -6,6 +12,11 @@ export default class Card {
       .findIndex(s => s.toLowerCase() === suitLower) > -1;
   }
 
+  /**
+   * Checks to see if the given face is one of the allowed values.
+   * @param {string} face - A standard playing card face (2-A).
+   * @returns {boolean}
+   */
   static isValidFace(face) {
     const faceLower = face.toLowerCase();
 
@@ -14,12 +25,23 @@ export default class Card {
       .findIndex(f => f === faceLower) > -1;
   }
 
+  /**
+   * Checks to see if the given converted numeric value is one of the allowed values.
+   * @param {number} value - The converted numeric value of a standard playing card.
+   * @returns {boolean}
+   */
   static isValidValue(value) {
     return [...Card.CARDS.values()]
       .map(c => c.value)
       .findIndex(v => v === value) > -1;
   }
 
+  /**
+   * @constructor
+   * @param {string} suit - A playing card suit
+   * @param {string} face - A playing card face. Should be wrapped in a JS object.
+   * @param {number} value - A playing card numeric value. Should be wrapped in a JS object.
+   */
   constructor(suit, {face, value}) {
     if (!Card.isValidSuit(suit) ||
       !Card.isValidFace(face) ||
@@ -31,14 +53,29 @@ export default class Card {
     this._value = value;
   }
 
+  /**
+   * Gets the card's suit.
+   * @public
+   * @returns {string}
+   */
   get suit() {
     return this._suit;
   }
 
+  /**
+   * Gets the card's face.
+   * @public
+   * @returns {string}
+   */
   get face() {
     return this._face;
   }
 
+  /**
+   * Gets the card's converted numeric value.
+   * @public
+   * @returns {number}
+   */
   get value() {
     return this._value;
   }
