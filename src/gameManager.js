@@ -67,7 +67,7 @@ export default class GameManager {
 
     /**
      * Recursively resolves wars between a list of players until a winner is determined.
-     * NOTE: This method does NOT reward cards; that function is delegated to the caller.
+     * NOTE: This method does NOT reward cards; that function is handled [elsewhere]{@link GameManager#resolveRound}.
      * @param {Array} players - The {@link Player}s participating in the war.
      * @returns {Array} - An array tuple in the form of [winner, eliminated players, cards played].
      */
