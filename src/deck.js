@@ -49,10 +49,6 @@ export default class Deck {
     this._cards = _.shuffle(this._cards);
   }
 
-  get cards() {
-    return this._cards;
-  }
-
   get count() {
     return this._cards.length;
   }

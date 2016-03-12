@@ -8,10 +8,6 @@ export default class Player {
       return this._name;
     }
 
-    get deck() {
-      return this._deck;
-    }
-
     take(numberOfCards = 1) {
       return this._deck.draw(numberOfCards);
     }

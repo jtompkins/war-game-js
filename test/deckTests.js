@@ -38,8 +38,10 @@ describe('Deck', () => {
 
       deck.count.should.equal(52);
 
-      deck.cards[51].suit.should.equal(cards[0].suit);
-      deck.cards[51].face.should.equal(cards[0].face);
+      // reaching into the private array here for the test,
+      // which is probably not the best practice.
+      deck._cards[51].suit.should.equal(cards[0].suit);
+      deck._cards[51].face.should.equal(cards[0].face);
     });
   });
 
