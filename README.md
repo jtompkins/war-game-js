@@ -4,8 +4,9 @@ A simple program for simulating the [card game War](https://www.pagat.com/war/wa
 
 ## Setup
 
+Before running the program, you'll need NodeJS 5 installed. It's possible to run the program on earlier versions of Node, but the Babel configuration is set up to only transpile ES6 feature that aren't in Node 5.
+
 1. Clone the repo.
-2. Make sure you've got NodeJS 5.0 or better and NPM installed.
 2. `npm install`
 
 ## Running the Game
@@ -14,7 +15,7 @@ A simple program for simulating the [card game War](https://www.pagat.com/war/wa
 
 ## Running the Tests
 
-There are 33 Mocha/Should tests. Run them using NPM:
+There are 34 Mocha/Should tests. Run them using NPM:
 
 `npm test`
 
