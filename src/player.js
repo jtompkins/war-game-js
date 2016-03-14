@@ -9,9 +9,7 @@ export default class Player {
    * @param {number} numberOfPlayers - The number of players to be created.
    * @returns {Array} - An array of player objects with pre-built decks.
    */
-  static splitDeckAndCreatePlayers(numberOfPlayers = 2) {
-    const startingDeck = Deck.standardDeck();
-
+  static createPlayers(startingDeck, numberOfPlayers = 2) {
     startingDeck.shuffle();
 
     return startingDeck

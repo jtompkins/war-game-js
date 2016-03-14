@@ -53,6 +53,14 @@ export default class GameManager {
   }
 
   /**
+   * Gets a list of active players.
+   * @returns {Array} - An array of {@link Player}s.
+   */
+  get activePlayers() {
+    return this._activePlayers;
+  }
+
+  /**
    * Given a set of cards, find the winners.
    * @param {Array} - An arry of object tuples in the form of {player, card}.
    * @returns {Array} - An array containing the winning tuple. In the case of a tie,
@@ -69,7 +77,9 @@ export default class GameManager {
       return 0;
     });
 
-    return sortedCards.filter(t => t.card.value === sortedCards[0].card.value);
+    const highestValue = sortedCards[0].card.value;
+
+    return sortedCards.filter(t => t.card.value === highestValue);
   }
 
   /**
@@ -105,9 +115,10 @@ export default class GameManager {
         // drawn card is entered into the comparison against
         // the other players.
         let cards = p.take(numberOfCards);
+        let lastCard = cards[cards.length - 1];
 
         playedCards.push(...cards);
-        comparedCards.push({ player: p, card: cards[cards.length - 1] });
+        comparedCards.push({ player: p, card: lastCard });
       }
     });
 

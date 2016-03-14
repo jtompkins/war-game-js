@@ -13,7 +13,8 @@ describe('Player', () => {
     });
 
     it('should allow for the bulk creation of players', () => {
-      let players = Player.splitDeckAndCreatePlayers(2);
+      const deck = Deck.standardDeck();
+      let players = Player.createPlayers(deck, 2);
 
       players.length.should.equal(2);
     });

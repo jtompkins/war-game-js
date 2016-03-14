@@ -21,8 +21,7 @@ export default class Card {
     const faceLower = face.toLowerCase();
 
     return [...Card.CARDS.values()]
-      .map(c => c.face.toLowerCase())
-      .findIndex(f => f === faceLower) > -1;
+      .findIndex(c => c.face.toLowerCase() === faceLower) > -1;
   }
 
   /**
@@ -32,8 +31,7 @@ export default class Card {
    */
   static isValidValue(value) {
     return [...Card.CARDS.values()]
-      .map(c => c.value)
-      .findIndex(v => v === value) > -1;
+      .findIndex(c => c.value === value) > -1;
   }
 
   /**
@@ -46,7 +44,7 @@ export default class Card {
     if (!Card.isValidSuit(suit) ||
       !Card.isValidFace(face) ||
       !Card.isValidValue(value))
-      throw Error('Invalid arguments!');
+      throw Error('Invalid card values.');
 
     this._suit = suit;
     this._face = face;
